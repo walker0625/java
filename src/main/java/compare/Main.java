@@ -1,3 +1,5 @@
+package compare;
+
 import compare.Member;
 import compare.MyCompare;
 
