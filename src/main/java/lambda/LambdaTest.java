@@ -1,5 +1,11 @@
 package lambda;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+
 public class LambdaTest {
 
     public static void main(String[] args) {
@@ -28,6 +34,16 @@ public class LambdaTest {
         // 1. 구현 클래스(StringConcatImpl)를 따로 생성할 필요가 없음(일회용)
         // 2. 구현 방식을 간편하게 변경이 가능
         // 3. 함수를 변수(매개변수로 넘겨서 재사용 가능)처럼 사용가능
+
+        List<String> names = new ArrayList<>();
+        names.add("java");
+        names.add("javascript");
+        names.add("php");
+
+        names.sort(String::compareToIgnoreCase);
+        names.removeIf(s -> s.startsWith("j"));
+
+        names.forEach(System.out::println);
     }
 
 }
