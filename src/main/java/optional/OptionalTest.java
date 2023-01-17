@@ -54,8 +54,13 @@ public class OptionalTest {
         studyList.add(new Study("java", "dev"));
         studyList.add(new Study("spring"));
 
-        studyList.stream().map(s -> s.getWriter().orElseGet(() -> makeCopyright()))
+        studyList.stream().map(s -> s.getWriter().orElseGet(()->"free"))
                           .collect(Collectors.toList()).forEach(System.out::println);
+
+        String none = studyList.get(1).getWriter().orElseGet(() -> "none");
+        Study noneWriterBook = Optional.ofNullable(studyList.get(2)).orElseGet(() -> new Study("noneWriter"));
+
+        System.out.println(none);
 
         try {
             studyList.stream().filter(s -> s.getWriter().orElseThrow(NoSuchElementException::new).equals("dev"))
@@ -71,10 +76,6 @@ public class OptionalTest {
         });
 
         studyList.forEach(System.out::println);
-    }
-
-    public static String makeCopyright() {
-        return "free";
     }
 
 }
