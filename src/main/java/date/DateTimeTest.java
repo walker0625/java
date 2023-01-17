@@ -1,11 +1,7 @@
 package date;
 
-import java.sql.SQLOutput;
 import java.time.*;
-import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 
 public class DateTimeTest {
 
